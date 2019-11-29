@@ -1,0 +1,17 @@
+{
+  "name": "tiktokdownloader",
+  "version": "1.0.0",
+  "description": "A simple NodeJS application to download TikTok videos by the share URL.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Pauloo27",
+  "license": "GPLv3",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "ping": "^0.2.2",
+    "url-regex": "^5.0.0"
+  }
+}
