@@ -6,10 +6,11 @@ Share TikTok video to download the video into TikToks Photo's Album despite the 
 https://www.icloud.com/shortcuts/62d51cbb9efd4f93b264d5219c7220cd
 
 # Endpoint
-https://sethusenthil-tiktok-downloader.glitch.me/ 
+https://tiktok-download.sethusenthil.com/
+
 ## Useage 
-  ### Template: https://sethusenthil-tiktok-downloader.glitch.me/{TikTok URL Here}
-  ### Example: https://sethusenthil-tiktok-downloader.glitch.me/https://vm.tiktok.com/9aqseF/
+  ##Template: https://tiktok-download.sethusenthil.com/{TikTok URL Here}
+  ### Example: https://tiktok-download.sethusenthil.com/https://vm.tiktok.com/9aqseF/
   
 # Credits 
 Inspired by https://github.com/Pauloo27
