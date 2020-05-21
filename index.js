@@ -5,24 +5,11 @@ const app = express()
 const port = process.env.PORT || 3210;
 const fs = require('fs')
 const util = require('util');
+let counter;
+counter = require('./counter.json').count
 
 
 app.get('/https://vm.tiktok.com/:id', (req, res) => {
-  // STAT: count the number of uses
-  const counter = __dirname+'/counter.txt'
-  fs.readFile(counter, 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    var result = parseInt(data);
-    result++
-    result = result.toString()
-
-    fs.writeFile(counter, result, 'utf8', function (err) {
-       if (err) return console.log(err);
-    });
-  });
-
   let url = 'https://vm.tiktok.com/' + req.params.id;
   if (url <= 2) {
     console.log('Missing or Invalid URL');
@@ -51,13 +38,30 @@ app.get('/https://vm.tiktok.com/:id', (req, res) => {
     .then(body => {
       const urls = body.match(urlRegex());
       const mediaUrl = urls.find(url => url.includes("muscdn.com") && url.includes("https://v"));
+      if (mediaUrl) {
       console.log(`Found Media URL: ${mediaUrl}`);
-      res.json({
-        'found': 'yes',
-        'url': mediaUrl
+      res.status(200).send({
+        status: 200,
+        message: 'OK',
+        found: 'yes',
+        url: mediaUrl
       })
+    }
+    else {
+      console.log('Missing or Invalid URL');
+      res.status(400).send({
+        status: 400,
+        message: 'BAD REQUEST',
+        found: 'no',
+        reason: 'Missing or Invalid URL',
+      })
+    }
     });
   }
+  fs.writeFile('./counter.json', JSON.stringify({"count": counter + 1}), 'utf8', function (err) {
+    if (err) return console.log(err);
+    counter++
+ })
 })
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
