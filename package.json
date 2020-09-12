@@ -10,7 +10,7 @@
   "license": "GPLv3",
   "dependencies": {
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "ping": "^0.2.2",
     "url-regex": "^5.0.0"
   }
