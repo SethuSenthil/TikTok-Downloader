@@ -8,7 +8,6 @@ const util = require('util');
 let counter;
 counter = require('./counter.json').count
 
-
 app.get('/https://vm.tiktok.com/:id', (req, res) => {
   let url = 'https://vm.tiktok.com/' + req.params.id;
   if (url <= 2) {
@@ -46,8 +45,7 @@ app.get('/https://vm.tiktok.com/:id', (req, res) => {
         found: 'yes',
         url: mediaUrl
       })
-    }
-    else {
+    } else {
       console.log('Missing or Invalid URL');
       res.status(400).send({
         status: 400,
@@ -66,5 +64,3 @@ app.get('/https://vm.tiktok.com/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-
-
